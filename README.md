@@ -69,7 +69,9 @@ EXPO_PUBLIC_API_URL=Your-ip-address:backend-server-port
 ---
 
 ### 3. Setup Backend
+
 Navigate to [spend-sense-server](https://github.com/Hp2006dec10/spend-sense-server.git) and clone the repository. Follow the instructions specified in the corresponding repository and start the backend development server.
+
 ---
 
 ### 4. Start Development Server
