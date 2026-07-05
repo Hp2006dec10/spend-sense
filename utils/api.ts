@@ -18,12 +18,12 @@ export const storage = {
   setItem: async (key: string, value: string): Promise<void> => {
     try {
       await SecureStore.setItemAsync(key, value);
-    } catch (e) {}
+    } catch (e) { }
   },
   removeItem: async (key: string): Promise<void> => {
     try {
       await SecureStore.deleteItemAsync(key);
-    } catch (e) {}
+    } catch (e) { }
   }
 };
 

@@ -46,3 +46,4 @@ app-example
 # prompt files
 *.md
 !README.md
+!SKILL.md
