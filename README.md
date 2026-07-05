@@ -1,50 +1,104 @@
-# Welcome to your Expo app 👋
+Live application coming soon...
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# Spend-Sense Frontend Client 💳📱
 
-1. Install dependencies
+Spend-Sense is a premium, user-friendly personal finance tracking application built on **React Native (Expo)**. It offers real-time balance calculations, rich categorization, custom tagging, multi-wallet operations, analytics insights, and a floating AI copilot for natural language interactions.
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## ✨ Features
 
-   ```bash
-   npx expo start
-   ```
+### 1. 🏠 Dynamic Dashboard & Transaction Ledger
+* **Timeline Ledger**: View your transaction history sorted chronologically. Expanded transaction cards support markdown-rendered descriptions.
+* **Instant Balance Engine**: Automated balance calculations reflecting transaction amounts across cash and bank accounts on a daily timeline.
+* **Advanced Multi-Filters**: Filter transaction feeds by Income/Expense type, specific categories, wallets, tags, or payment methods.
+* **Transaction Inspector Modal**: A slide-up sheet displaying complete details of any transaction, formatted locale dates/times, and fully parsed notes.
 
-In the output, you'll find options to open the app in a
+### 2. 📊 Analytics & Insights
+* **Trends Tracking**: Visual charts demonstrating month-over-month income vs. expense performance.
+* **Distribution Breakdowns**: Clean percentage indicators representing category-wise distributions and wallet balance proportions.
+* **Live Update Listeners**: Auto-fetches fresh analytics metrics when switching tab screens.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### 3. 💬 Floating AI Copilot Chat Overlay
+* **Natural Language Processing**: Chat with an AI assistant directly from a floating overlay.
+* **Dynamic Action Tools**: The agent can add transactions, analyze spending trends, fetch account balances, or manage user parameters on your behalf.
+* **Real-time Event Triggers**: Home dashboard and wallet states refresh instantly once the AI agent finishes executing backend actions.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 4. ⚙️ Category, Wallet & Tag Manager
+* **Sheet Modal Portals**: Add, edit, or delete categories (with custom icons/colors) and wallets through slide-out modals.
+* **Tag Renaming & Coloring**: Edit tag parameters and rename existing tags easily with instant global updates.
+* **Preferred Currency**: Switch your primary operating currency (e.g. INR, USD, EUR, GBP) dynamically.
 
-## Get a fresh project
+### 5. 🎨 Design & Layout Aesthetics
+* **Premium Theme Modes**: Smooth Light/Dark mode transitions matching system preferences.
+* **Safe Area Protection**: Integrated safe area top insets using the `useSafeAreaInsets` hook to prevent UI overlaps with device status bars on iOS/Android.
 
-When you're ready, run:
+---
 
+## 🛠️ Technology Stack
+
+* **Core Framework**: React Native (Expo SDK 54)
+* **Routing**: Expo Router (File-based navigation tabs)
+* **State & Authentication**: Hook-based Auth Provider with secure tokens
+* **Icons**: Ionicons (`@expo/vector-icons`)
+* **Storage**: `expo-secure-store` (for mobile token persistence) & Web LocalStorage
+* **HTTP Client**: Customized JWT refresh handler utility (`apiFetch`)
+
+---
+
+## 🚀 Get Started
+
+### Prerequisites
+* Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
+
+### 1. Installation
+Navigate to the `frontend/` directory and install dependencies:
 ```bash
-npm run reset-project
+cd frontend
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Environment Configuration
+Create a `.env` file in the `frontend/` directory (this file is ignored in `.gitignore` to keep credentials hidden):
+```env
+EXPO_PUBLIC_API_URL=Your-ip-address
+```
+*(In local development without this variable, the app automatically defaults to `http://localhost:5000/api`)*
 
-## Learn more
+### 3. Start Development Server
+Run the Metro bundler to launch the app:
+```bash
+# Start Expo bundler
+npm start
 
-To learn more about developing your project with Expo, look at the following resources:
+# Run directly on Expo Web
+npm run web
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# Run on Android Emulator
+npm run android
 
-## Join the community
+# Run on iOS Simulator
+npm run ios
+```
 
-Join our community of developers creating universal apps.
+---
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📁 Folder Structure
+
+```
+frontend/
+├── app/                  # Expo Router tab layouts & screens
+│   ├── (tabs)/           # Core tab screens (index, analytics, settings)
+│   ├── _layout.tsx       # Root entry point with Auth Provider & Floating Agent
+│   ├── login.tsx         # User authentication login portal
+│   └── register.tsx      # User signup portal
+├── assets/               # Local app icons and splash images
+├── components/           # Reusable UI components
+│   ├── ui/               # Lower-level styled components (MarkdownText, etc.)
+│   └── FloatingAgentButton.tsx # AI Agent overlay modal chat component
+├── constants/            # Styling theme tokens and palettes
+├── hooks/                # Custom React hooks (useAuth, useColorScheme, etc.)
+└── utils/                # API fetching client and secure storage tools
+```
