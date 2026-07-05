@@ -51,23 +51,28 @@ Spend-Sense is a premium, user-friendly personal finance tracking application bu
 ## 🚀 Get Started
 
 ### Prerequisites
-* Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
+* Ensure you have [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/install/) installed (v18+ recommended).
 
 ### 1. Installation
-Navigate to the `frontend/` directory and install dependencies:
+Clone the repository and install the dependencies.
 ```bash
-cd frontend
+git clone https://github.com/Hp2006dec10/spend-sense.git
 npm install
 ```
 
 ### 2. Environment Configuration
-Create a `.env` file in the `frontend/` directory (this file is ignored in `.gitignore` to keep credentials hidden):
+Create a `.env` file in the (this file is ignored in `.gitignore` to keep credentials hidden):
 ```env
-EXPO_PUBLIC_API_URL=Your-ip-address
+EXPO_PUBLIC_API_URL=Your-ip-address:backend-server-port
 ```
 *(In local development without this variable, the app automatically defaults to `http://localhost:5000/api`)*
+---
 
-### 3. Start Development Server
+### 3. Setup Backend
+Navigate to [spend-sense-server](https://github.com/Hp2006dec10/spend-sense-server.git) and clone the repository. Follow the instructions specified in the corresponding repository and start the backend development server.
+---
+
+### 4. Start Development Server
 Run the Metro bundler to launch the app:
 ```bash
 # Start Expo bundler
@@ -84,21 +89,3 @@ npm run ios
 ```
 
 ---
-
-## 📁 Folder Structure
-
-```
-frontend/
-├── app/                  # Expo Router tab layouts & screens
-│   ├── (tabs)/           # Core tab screens (index, analytics, settings)
-│   ├── _layout.tsx       # Root entry point with Auth Provider & Floating Agent
-│   ├── login.tsx         # User authentication login portal
-│   └── register.tsx      # User signup portal
-├── assets/               # Local app icons and splash images
-├── components/           # Reusable UI components
-│   ├── ui/               # Lower-level styled components (MarkdownText, etc.)
-│   └── FloatingAgentButton.tsx # AI Agent overlay modal chat component
-├── constants/            # Styling theme tokens and palettes
-├── hooks/                # Custom React hooks (useAuth, useColorScheme, etc.)
-└── utils/                # API fetching client and secure storage tools
-```
